@@ -1,0 +1,13 @@
+App name
+QUILAN MARIUS RENE GABRIEL
+
+Short description
+Manage daily incidents, resources, interviews, and payroll reports in one offline operations workspace.
+
+Full description
+QUILAN MARIUS RENE GABRIEL helps small operations teams keep the daily work queue organized without account setup or cloud services. Create incident reports, assign owners, reserve resources, schedule interviews, and prepare payroll report summaries from a focused Android app.
+
+The app is designed for supervisors and administrative teams that need quick local tracking during busy workdays. Records stay on the device, making it useful for teams that want a simple private workspace for operational follow-up.
+
+Category
+Productivity

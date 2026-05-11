@@ -1,0 +1,6 @@
+using $gpc-app-builder  create this app
+app title: QUILAN MARIUS RENE GABRIEL
+app idea: An operations-focused app offering incident reporting, resource allocation, interview scheduling, and payroll reports to streamline daily business tasks.
+company name: QUILAN MARIUS RENE GABRIEL
+email address: [email to be provided later]
+the two icon and featured graphics contained in docs folder
