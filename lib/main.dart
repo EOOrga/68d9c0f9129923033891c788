@@ -19,9 +19,10 @@ void main() {
 }
 
 class QuilanApp extends StatefulWidget {
-  const QuilanApp({super.key, this.controller});
+  const QuilanApp({super.key, this.controller, this.initialIndex = 0});
 
   final OpsController? controller;
+  final int initialIndex;
 
   @override
   State<QuilanApp> createState() => _QuilanAppState();
@@ -89,7 +90,10 @@ class _QuilanAppState extends State<QuilanApp> {
               body: Center(child: CircularProgressIndicator()),
             );
           }
-          return OperationsHome(controller: _controller);
+          return OperationsHome(
+            controller: _controller,
+            initialIndex: widget.initialIndex,
+          );
         },
       ),
     );
@@ -97,16 +101,27 @@ class _QuilanAppState extends State<QuilanApp> {
 }
 
 class OperationsHome extends StatefulWidget {
-  const OperationsHome({super.key, required this.controller});
+  const OperationsHome({
+    super.key,
+    required this.controller,
+    this.initialIndex = 0,
+  });
 
   final OpsController controller;
+  final int initialIndex;
 
   @override
   State<OperationsHome> createState() => _OperationsHomeState();
 }
 
 class _OperationsHomeState extends State<OperationsHome> {
-  int _index = 0;
+  late int _index;
+
+  @override
+  void initState() {
+    super.initState();
+    _index = widget.initialIndex.clamp(0, 4).toInt();
+  }
 
   @override
   Widget build(BuildContext context) {
