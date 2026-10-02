@@ -124,6 +124,27 @@ jobs:
           if not distinct: raise SystemExit("Phone screenshots are visually identical; provide distinct app screenshots in docs/screens or Play metadata")
           print(f"Verified {len(images)} valid, distinct phone screenshots")
           PY
+      - name: Prepare Play feature graphic from docs/featured.png
+        if: ${{ inputs.publish_to_play }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          source = Path("docs/featured.png")
+          target = Path("fastlane/metadata/android/en-US/images/featureGraphic.png")
+          if not source.is_file(): raise SystemExit("Required feature graphic not found: docs/featured.png")
+          if source.stat().st_size > 15 * 1024 * 1024: raise SystemExit("Feature graphic exceeds Google Play 15 MB limit")
+          with Image.open(source) as image:
+              image_format = image.format
+              image_size = image.size
+              image.verify()
+          if image_format not in {"PNG", "JPEG"}: raise SystemExit("Feature graphic must be PNG or JPEG")
+          if image_size != (1024, 500): raise SystemExit(f"Feature graphic must be 1024x500 pixels; got {image_size[0]}x{image_size[1]}")
+          target.parent.mkdir(parents=True, exist_ok=True)
+          target.write_bytes(source.read_bytes())
+          print(f"Prepared feature graphic: {image_size[0]}x{image_size[1]}, {source.stat().st_size} bytes")
+          PY
       - name: Upload AAB artifact
         uses: actions/upload-artifact@v4
         with:
