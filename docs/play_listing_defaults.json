@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "applications": {
+    "com.taziggg100.quilanops": {
+      "title": "QUILAN MARIUS RENE GABRIEL",
+      "short_description": "Manage daily incidents, resources, interviews, and payroll reports in one...",
+      "full_description": "QUILAN MARIUS RENE GABRIEL helps small operations teams keep the daily work queue organized without account setup or cloud services. Create incident reports, assign owners, reserve resources, schedule interviews, and prepare payroll report summaries from a focused Android app.\n\nThe app is designed for supervisors and administrative teams that need quick local tracking during busy workdays. Records stay on the device, making it useful for teams that want a simple private workspace for operational follow-up.",
+      "source_screenshots": [
+        "docs/screens/1.png",
+        "docs/screens/2.png",
+        "docs/screens/3.png"
+      ],
+      "generated_from": "existing repository listing metadata and README",
+      "generated_at": "2026-10-02T21:20:01.667847+00:00"
+    }
+  }
+}
